@@ -12,10 +12,10 @@ class ArticleController extends Controller
         return Article::all();
     }
 
-    public function show(Article $id)
+    public function show(Article $article)
     {
-        return $id;
-        // return Article::find($id);
+        return $article;
+        // return Article::find($article);
     }
 
     public function store(Request $request)
@@ -24,19 +24,19 @@ class ArticleController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Article $id)
+    public function update(Request $request, Article $article)
     {
-        // $article = Article::findOrFail($id);
-        $id->update($request->all());
+        // $article = Article::findOrFail($article);
+        $article->update($request->all());
 
-        return response()->json($id, 200);
+        return response()->json($article, 200);
     }
 
-    public function destroy(Article $id)
+    public function destroy(Article $article)
     {
-        // $article = Article::finOrFail($id);
+        // $article = Article::finOrFail($article);
         // $article->delete();
-        $id->delete();
+        $article->delete();
         return response()->json(null, 204);
     }
 }
