@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class ArticleTableSeeder extends Seeder
@@ -17,11 +18,12 @@ class ArticleTableSeeder extends Seeder
         Article::truncate();
 
         $faker = \Faker\Factory::create();
-        
+        $users = User::all();
         for ($i=0; $i < 30; $i++) { 
             Article::create([
                 'title' => $faker->sentence(),
-                'body' => $faker->paragraph()
+                'body' => $faker->paragraph(),
+                'user_id' => 1
             ]);
         }
 
